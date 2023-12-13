@@ -33,8 +33,9 @@ def duplicate_slide_win32(source: str, dest: str, count: int):
     prs = ppt_instance.Presentations.open(source, read_only, has_title, window)
     nr_slide = 1
 
-    for insert_index in range(2, count + 2):
-        prs.Slides(nr_slide).Copy()
+    prs.Slides(nr_slide).Copy()
+    for insert_index in range(1, count + 1):
+        print("Inserting %s" % insert_index)
         prs.Slides.Paste(Index=insert_index)
 
     prs.SaveAs(dest)
