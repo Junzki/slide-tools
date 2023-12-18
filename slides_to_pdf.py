@@ -6,7 +6,7 @@ import win32api
 import win32com.client
 
 FILE_TYPE_SLIDE = 1
-FILE_TYPE_NORNAL = 2
+FILE_TYPE_NORMAL = 2
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--copy-all-files', action='store_true', help='Copy all files to target directory')
@@ -28,7 +28,7 @@ def iterate_file(base_dir: str, prefix: str = None):
             if file.endswith('.pptx'):
                 collected.append((rel_, FILE_TYPE_SLIDE))
             else:
-                collected.append((rel_, FILE_TYPE_NORNAL))
+                collected.append((rel_, FILE_TYPE_NORMAL))
 
         for d in dirs:
             name_ = os.path.join(dirname, d)
