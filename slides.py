@@ -52,4 +52,17 @@ def search_and_replace_placeholder(slide, placeholder, value):
                 if runs.text == placeholder:
                     runs.text = value
 
+    for holder in slide.shapes:
+        text_frame = getattr(holder, "text_frame", None)
+        if not text_frame:
+            continue
+
+        for para in text_frame.paragraphs:
+            for runs in para.runs:
+                text = runs.text
+
+                if placeholder in text:
+                    text = text.replace(placeholder, value)
+                    runs.text = text
+
     return slide
