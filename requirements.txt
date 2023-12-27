@@ -1,2 +1,2 @@
-Pillow
-freetype-py
+pywin32
+python-pptx
